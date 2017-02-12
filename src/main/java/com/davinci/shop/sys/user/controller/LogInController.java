@@ -23,7 +23,7 @@ public class LogInController {
     public String  login(){
         return "login";
     }
-    @RequestMapping(value="/doLogin",method = RequestMethod.POST)
+    @RequestMapping(value="/doLogin")
     public String doLogin(SysUser user){
         Map<String,Object> entity=service.logIn(user.getAccount());
         return "index";

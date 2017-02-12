@@ -1,6 +1,6 @@
 /** index.js By Beginner Emain:zheng_jinfan@126.com HomePage:http://www.zhengjinfan.cn */
 layui.config({
-	base: 'js/lib/'
+	base: 'js/lib/layui/assembly/'
 }).use(['element', 'layer', 'navbar', 'tab'], function() {
 	var element = layui.element(),
 		$ = layui.jquery,
@@ -18,18 +18,27 @@ layui.config({
 		});
 	}).resize();
 
-
-	//设置navbar
-	navbar.set({
-		spreadOne: true,
-		elem: '#admin-navbar-side',
-		cached: true,
-		data: $.ajax({
-
-		}).responseText
-	});
+        $.ajax({
+            url:"sys/menu/list",
+            type:"POST",
+            cache :"false",
+            async:"false",
+            success:function(data){
+            	// var data=JSON.stringify(data);
+            	// console.log(data);
+                //设置navbar
+                navbar.set({
+                    spreadOne: true,
+                    elem: '#admin-navbar-side',
+                    cached: true,
+                    data: data
+                });
+                //渲染navbar
+                navbar.render();
+            }
+        });
 	//渲染navbar
-	navbar.render();
+	// navbar.render();
 	//监听点击事件
 	navbar.on('click(side)', function(data) {
 		tab.tabAdd(data.field);

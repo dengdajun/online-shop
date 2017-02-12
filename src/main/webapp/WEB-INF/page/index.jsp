@@ -125,6 +125,10 @@
     <script type="text/javascript" src="js/lib/layui/layui.js"></script>
     <script src="js/index.js"></script>
     <script>
+        window.onload=function(){
+            test();
+        }
+
         layui.use('layer', function() {
             var $ = layui.jquery,
                 layer = layui.layer;
