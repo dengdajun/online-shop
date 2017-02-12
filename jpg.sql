@@ -25,7 +25,7 @@ CREATE TABLE `common_region` (
   `city` varchar(10) DEFAULT NULL COMMENT '市',
   `area` varchar(10) DEFAULT NULL COMMENT '区/县/二级市',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='公用地区信息';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='公用地区信息';
 
 -- ----------------------------
 -- Records of common_region
@@ -42,7 +42,7 @@ CREATE TABLE `cust_address` (
   `address_detail` varchar(30) DEFAULT NULL COMMENT '详细地址',
   `is_default` int(1) DEFAULT NULL COMMENT '是否默认地址',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='客户地址信息';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='客户地址信息';
 
 -- ----------------------------
 -- Records of cust_address
@@ -60,7 +60,7 @@ CREATE TABLE `cust_attachment` (
   `att_new_name` varchar(30) DEFAULT NULL COMMENT '附件在服务器中的名字',
   `att_type` varchar(10) DEFAULT NULL COMMENT '附件类型',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='客户附件相关信息';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='客户附件相关信息';
 
 -- ----------------------------
 -- Records of cust_attachment
@@ -78,7 +78,7 @@ CREATE TABLE `cust_info` (
   `cust_email` varchar(20) DEFAULT NULL COMMENT '客户邮箱',
   `cust_sex` int(1) DEFAULT NULL COMMENT '客户性别',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='客户基本信息表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='客户基本信息表';
 
 -- ----------------------------
 -- Records of cust_info
@@ -96,7 +96,7 @@ CREATE TABLE `good_attachment` (
   `att_new_name` varchar(30) DEFAULT NULL COMMENT '附件在服务器中的名字',
   `att_type` varchar(10) DEFAULT NULL COMMENT '附件类型',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='商品附件相关信息';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品附件相关信息';
 
 -- ----------------------------
 -- Records of good_attachment
@@ -112,7 +112,7 @@ CREATE TABLE `good_class` (
   `class_name` varchar(20) DEFAULT NULL COMMENT '类型名称',
   `class_desc` varchar(50) DEFAULT NULL COMMENT '类型描述',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='商品类型基本信息';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品类型基本信息';
 
 -- ----------------------------
 -- Records of good_class
@@ -133,7 +133,7 @@ CREATE TABLE `good_class_attribute` (
   `attribute_desc` varchar(50) DEFAULT NULL COMMENT '属性描述',
   `good_class_id` int(11) DEFAULT NULL COMMENT '所属商品类型',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='商品类型属性信息';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品类型属性信息';
 
 -- ----------------------------
 -- Records of good_class_attribute
@@ -150,7 +150,7 @@ CREATE TABLE `good_info` (
   `good_class_id` int(11) DEFAULT NULL COMMENT '商品类目',
   `good_desc` varchar(50) DEFAULT NULL COMMENT '商品描述',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='商品基本信息';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品基本信息';
 
 -- ----------------------------
 -- Records of good_info
@@ -166,7 +166,7 @@ CREATE TABLE `good_info_attribute_value` (
   `attribute_id` int(11) DEFAULT NULL COMMENT '属性id',
   `attribute_value` varchar(20) DEFAULT NULL COMMENT '属性值',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='商品属性 值 信息';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品属性 值 信息';
 
 -- ----------------------------
 -- Records of good_info_attribute_value
@@ -185,7 +185,7 @@ CREATE TABLE `good_word` (
   `sys_account_id` int(11) DEFAULT NULL COMMENT '系统回复用户id',
   `sys_account_name` varchar(20) DEFAULT NULL COMMENT '系统回复用户名字',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='商品评论';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品评论';
 
 -- ----------------------------
 -- Records of good_word
@@ -211,7 +211,7 @@ CREATE TABLE `order_history_info` (
   `target_address_id` int(11) DEFAULT NULL COMMENT '地址id',
   `target_address_detail` varchar(30) DEFAULT NULL COMMENT '买家详细地址',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='订单历史表 订单信息不能删除原则，但基本信息表数据量会越来越大 ';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='订单历史表 订单信息不能删除原则，但基本信息表数据量会越来越大 ';
 
 -- ----------------------------
 -- Records of order_history_info
@@ -236,7 +236,7 @@ CREATE TABLE `order_info` (
   `target_address_id` int(11) DEFAULT NULL COMMENT '地址id',
   `target_address_detail` varchar(30) DEFAULT NULL COMMENT '买家详细地址',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='订单基本信息    因为地址和商品信息会在订单执行期间发生变动 所以需要他们基本信息  商品属性和商品类型属性在这期间不能变动  ';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='订单基本信息    因为地址和商品信息会在订单执行期间发生变动 所以需要他们基本信息  商品属性和商品类型属性在这期间不能变动  ';
 
 -- ----------------------------
 -- Records of order_info
@@ -251,7 +251,7 @@ CREATE TABLE `sys_account` (
   `account` varchar(20) DEFAULT NULL COMMENT '登录账号',
   `passwd` varchar(20) DEFAULT NULL COMMENT '登录密码',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='系统账号信息表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统账号信息表';
 
 -- ----------------------------
 -- Records of sys_account
@@ -267,7 +267,7 @@ CREATE TABLE `sys_account_group` (
   `account_id` int(11) DEFAULT NULL COMMENT '系统账号id',
   `group_id` int(11) DEFAULT NULL COMMENT '系统账号组id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='系统账号组中间表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统账号组中间表';
 
 -- ----------------------------
 -- Records of sys_account_group
@@ -282,7 +282,7 @@ CREATE TABLE `sys_account_permissions` (
   `account_id` int(11) DEFAULT NULL COMMENT '系统账号id',
   `permissions_id` int(11) DEFAULT NULL COMMENT '账号权限id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='系统账号权限中间表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统账号权限中间表';
 
 -- ----------------------------
 -- Records of sys_account_permissions
@@ -297,7 +297,7 @@ CREATE TABLE `sys_account_role` (
   `account_id` int(11) DEFAULT NULL COMMENT '系统账号id',
   `role_id` int(11) DEFAULT NULL COMMENT '系统账号角色id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='系统账号角色中间表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统账号角色中间表';
 
 -- ----------------------------
 -- Records of sys_account_role
@@ -313,7 +313,7 @@ CREATE TABLE `sys_group` (
   `group_name` varchar(20) DEFAULT NULL COMMENT '组名称',
   `group_desc` varchar(50) DEFAULT NULL COMMENT '组描述',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='组信息表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='组信息表';
 
 -- ----------------------------
 -- Records of sys_group
@@ -328,7 +328,7 @@ CREATE TABLE `sys_group_permissions` (
   `group_id` int(11) DEFAULT NULL COMMENT '组id',
   `permissions_id` int(11) DEFAULT NULL COMMENT '权限id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='组权限中间表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='组权限中间表';
 
 -- ----------------------------
 -- Records of sys_group_permissions
@@ -343,7 +343,7 @@ CREATE TABLE `sys_group_role` (
   `group_id` int(11) DEFAULT NULL COMMENT '组id',
   `role_id` int(11) DEFAULT NULL COMMENT '角色id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='组角色中间表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='组角色中间表';
 
 -- ----------------------------
 -- Records of sys_group_role
@@ -360,7 +360,7 @@ CREATE TABLE `sys_menu` (
   `menu_name` varchar(20) DEFAULT NULL COMMENT '菜单名称',
   `menu_desc` varchar(50) DEFAULT NULL COMMENT '菜单描述',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='系统菜单';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统菜单';
 
 -- ----------------------------
 -- Records of sys_menu
@@ -375,7 +375,7 @@ CREATE TABLE `sys_menu_permissions` (
   `menu_id` int(11) DEFAULT NULL COMMENT '菜单id',
   `permissions_id` int(11) DEFAULT NULL COMMENT '权限id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='系统菜单权限中间表，若通过菜单来控制权限，这个表必须';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统菜单权限中间表，若通过菜单来控制权限，这个表必须';
 
 -- ----------------------------
 -- Records of sys_menu_permissions
@@ -391,7 +391,7 @@ CREATE TABLE `sys_permissions` (
   `permissions_name` varchar(20) DEFAULT NULL COMMENT '权限名称',
   `permissions_desc` varchar(50) DEFAULT NULL COMMENT '权限描述',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='权限信息表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='权限信息表';
 
 -- ----------------------------
 -- Records of sys_permissions
@@ -407,7 +407,7 @@ CREATE TABLE `sys_role` (
   `role_name` varchar(20) DEFAULT NULL COMMENT '角色名称',
   `role_desc` varchar(50) DEFAULT NULL COMMENT '角色描述',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='角色信息表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色信息表';
 
 -- ----------------------------
 -- Records of sys_role
@@ -422,7 +422,7 @@ CREATE TABLE `sys_role_permissions` (
   `role_id` int(11) DEFAULT NULL COMMENT '角色id',
   `permissions_id` int(11) DEFAULT NULL COMMENT '权限id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='角色权限中间表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色权限中间表';
 
 -- ----------------------------
 -- Records of sys_role_permissions
