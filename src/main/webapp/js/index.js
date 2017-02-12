@@ -27,8 +27,6 @@ layui.config({
 		data: $.ajax({
 
 		}).responseText
-			/*cached:true,
-			url: 'datas/nav.json'*/
 	});
 	//渲染navbar
 	navbar.render();
