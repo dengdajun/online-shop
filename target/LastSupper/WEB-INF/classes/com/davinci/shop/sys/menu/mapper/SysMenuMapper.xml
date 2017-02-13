@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.davinci.shop.sys.menu.mapper.SysMenuMapper">
+    <sql id="column">
+      t.id id,
+      t.parent_id parentId,
+      t.menu_url href,
+      t.menu_name title,
+      t.menu_icon icon,
+      t.menu_desc des
+    </sql>
+    <select id="getMenusByParentId" parameterType="java.lang.Integer" resultType="java.util.HashMap">
+        select
+        <include refid="column"/>
+        from sys_menu t
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="parentId != null and parentId != ''">
+               AND t.PARENT_ID = #{parentId}
+            </if>
+        </trim>
+    </select>
+</mapper>

@@ -1,9 +1,8 @@
-package com.davinci.core.ExceptionHandle;
+package com.davinci.core.exceptionHandle;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,11 +15,20 @@ import java.io.IOException;
 public class ControllerExceptionAdvice {
 
     @ExceptionHandler(value=Exception.class)
-    public void exception(Exception exception, HttpServletRequest request, HttpServletResponse response){
+    public String exception(Exception exception, HttpServletRequest request, HttpServletResponse response,RedirectAttributes model){
         try {
-            response.getOutputStream().print (exception.getMessage());
+            String msg=exception.getMessage().split(":")[2];
+            response.getOutputStream().print (msg);
+            request.setAttribute("errorMsg",msg);
+//            登录异常处理
+            String logurl=request.getContextPath()+"/sys/doLogin";
+            if(logurl.equals(request.getRequestURI())){
+                model.addFlashAttribute("errorMsg",msg);
+                return "redirect:/sys/login";
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }

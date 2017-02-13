@@ -7,8 +7,6 @@ import com.davinci.shop.sys.user.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Map;
-
 /**
  * Created by dengdajun on 2017/2/12.
  */
@@ -22,9 +20,9 @@ public class SysUserServiceImpl implements SysUserService {
         if(entity==null){
             throw new Exception("没有此账号");
         }
-//        if(!entity.getPasswd().equals(EncryptDecrypt.MD5(user.getPasswd()))){
-//            throw new Exception("密码错误");
-//        }
+        if(!entity.getPasswd().equalsIgnoreCase(EncryptDecrypt.MD5(user.getPasswd()))){
+            throw new Exception("密码错误");
+        }
          return entity;
     }
 }
