@@ -31,13 +31,13 @@
 				<label class="beg-login-icon">
 					<i class="layui-icon">&#xe612;</i>
 				</label>
-				<input type="text" name="account" lay-verify="account" autocomplete="off" placeholder="这里输入登录名" class="layui-input">
+				<input type="text" name="account" lay-verify="userName" autocomplete="off" placeholder="这里输入登录名" class="layui-input">
 			</div>
 			<div class="layui-form-item">
 				<label class="beg-login-icon">
 					<i class="layui-icon">&#xe642;</i>
 				</label>
-				<input type="password" name="passwd" lay-verify="passwd" autocomplete="off" placeholder="这里输入密码" class="layui-input">
+				<input type="password" name="passwd" lay-verify="password" autocomplete="off" placeholder="这里输入密码" class="layui-input">
 			</div>
 			<div class="layui-form-item">
 				<div class="beg-pull-left beg-login-remember">
@@ -63,7 +63,7 @@
 			$ = layui.jquery;
         $(function(){
             var msg= "${errorMsg}";  //catchMessage为后台异常message
-			if(!msg){
+			if(""!==msg){
                 layer.msg(msg);
 			}
         });

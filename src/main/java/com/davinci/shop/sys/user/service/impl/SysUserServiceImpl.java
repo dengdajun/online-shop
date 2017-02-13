@@ -1,6 +1,7 @@
 package com.davinci.shop.sys.user.service.impl;
 
 import com.davinci.common.utils.EncryptDecrypt;
+import com.davinci.core.exception.RedirectnException;
 import com.davinci.shop.sys.user.mapper.SysUserMapper;
 import com.davinci.shop.sys.user.model.SysUser;
 import com.davinci.shop.sys.user.service.SysUserService;
@@ -15,13 +16,13 @@ public class SysUserServiceImpl implements SysUserService {
     @Autowired
     private SysUserMapper mapper;
     @Override
-    public SysUser logIn(SysUser user) throws Exception {
+    public SysUser logIn(SysUser user) throws RedirectnException {
         SysUser entity=mapper.getUserByAccount(user.getAccount());
         if(entity==null){
-            throw new Exception("没有此账号");
+            throw new RedirectnException("没有此账号");
         }
         if(!entity.getPasswd().equalsIgnoreCase(EncryptDecrypt.MD5(user.getPasswd()))){
-            throw new Exception("密码错误");
+            throw new RedirectnException("密码错误");
         }
          return entity;
     }

@@ -1,10 +1,12 @@
 E:\IdeaWork\LastSupper\src\main\java\com\davinci\core\exceptionHandle\ControllerExceptionAdvice.java
 E:\IdeaWork\LastSupper\src\main\java\com\davinci\shop\sys\menu\controller\SysMenuContoller.java
 E:\IdeaWork\LastSupper\src\main\java\com\davinci\shop\sys\user\controller\LogInController.java
+E:\IdeaWork\LastSupper\src\main\java\com\davinci\core\exception\RedirectnException.java
 E:\IdeaWork\LastSupper\src\main\java\com\davinci\core\shiro\ShiroRealm.java
 E:\IdeaWork\LastSupper\src\main\java\com\davinci\shop\sys\menu\service\impl\SysMenuServiceImpl.java
 E:\IdeaWork\LastSupper\src\main\java\com\davinci\shop\sys\user\mapper\SysUserMapper.java
 E:\IdeaWork\LastSupper\src\main\java\com\davinci\shop\sys\user\service\SysUserService.java
+E:\IdeaWork\LastSupper\src\main\java\com\davinci\core\exception\GeneralException.java
 E:\IdeaWork\LastSupper\src\main\java\com\davinci\core\logHandle\ServiceLogHandle.java
 E:\IdeaWork\LastSupper\src\main\java\com\davinci\core\mybatis\MyBatisInterface.java
 E:\IdeaWork\LastSupper\src\main\java\com\davinci\shop\sys\user\service\impl\SysUserServiceImpl.java

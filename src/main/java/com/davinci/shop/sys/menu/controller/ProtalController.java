@@ -1,5 +1,6 @@
 package com.davinci.shop.sys.menu.controller;
 
+import com.davinci.core.exception.GeneralException;
 import com.davinci.shop.sys.menu.service.SysMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,10 +21,7 @@ public class ProtalController {
 
     @RequestMapping("/list")
     @ResponseBody
-    public List<Map<String,Object>> menuList() throws Exception {
-        if(true){
-            throw new Exception("tes");
-        }
+    public List<Map<String,Object>> menuList() throws GeneralException {
         return  service.getMenusByParentId(null);
     }
 }

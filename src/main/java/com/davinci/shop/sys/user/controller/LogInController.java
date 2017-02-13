@@ -1,5 +1,6 @@
 package com.davinci.shop.sys.user.controller;
 
+import com.davinci.core.exception.RedirectnException;
 import com.davinci.shop.sys.user.model.SysUser;
 import com.davinci.shop.sys.user.service.SysUserService;
 import org.apache.shiro.SecurityUtils;
@@ -25,7 +26,7 @@ public class LogInController {
     }
 
     @RequestMapping(value="/doLogin")
-    public String doLogin(SysUser user,HttpServletRequest request) throws Exception {
+    public String doLogin(SysUser user,HttpServletRequest request) throws RedirectnException {
         SysUser logInUser= service.logIn(user);
         Subject subject = SecurityUtils.getSubject();
 //        if (!subject.isAuthenticated()) {
@@ -33,6 +34,7 @@ public class LogInController {
 //            return "/login";
 //        }
         request.getSession().setAttribute("user", logInUser );//登录成功，向session存入一个登录标记
+        request.removeAttribute("errorMsg");
         return "index";
     }
 }

@@ -2,7 +2,9 @@ com\davinci\common\utils\EncryptDecrypt.class
 com\davinci\shop\sys\menu\model\SysMenu.class
 com\davinci\core\logHandle\ContollerLogHandle.class
 com\davinci\shop\sys\menu\controller\SysMenuContoller.class
+com\davinci\core\exception\RedirectnException.class
 com\davinci\shop\sys\user\mapper\SysUserMapper.class
+com\davinci\core\exception\GeneralException.class
 com\davinci\shop\sys\user\model\SysUser.class
 com\davinci\core\logHandle\ServiceLogHandle.class
 com\davinci\shop\sys\user\controller\LogInController.class

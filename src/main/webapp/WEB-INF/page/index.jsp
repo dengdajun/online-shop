@@ -61,7 +61,7 @@
                             </a>
                         </dd>
                         <dd>
-                            <a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+                            <a href="sys/login"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
                         </dd>
                     </dl>
                 </li>
