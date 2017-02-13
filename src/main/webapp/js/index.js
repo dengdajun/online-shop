@@ -17,28 +17,17 @@ layui.config({
 			$(this).height($content.height());
 		});
 	}).resize();
-
-        $.ajax({
-            url:"sys/menu/list",
-            type:"POST",
-            cache :"false",
-            async:"false",
-            success:function(data){
-            	// var data=JSON.stringify(data);
-            	// console.log(data);
-                //设置navbar
-                navbar.set({
-                    spreadOne: true,
-                    elem: '#admin-navbar-side',
-                    cached: true,
-                    data: data
-                });
-                //渲染navbar
-                navbar.render();
-            }
-        });
+    //navbar数据加载
+    navbar.set({
+        spreadOne: true,
+        elem: '#admin-navbar-side',
+        cached: true,
+        // data: data,
+		type:"POST",
+		url:"protal/list"
+    });
 	//渲染navbar
-	// navbar.render();
+	navbar.render();
 	//监听点击事件
 	navbar.on('click(side)', function(data) {
 		tab.tabAdd(data.field);

@@ -17,8 +17,6 @@ public class SysMenuServiceImpl implements SysMenuService {
     private SysMenuMapper mapper;
     @Override
     public List<Map<String, Object>> getMenusByParentId(Integer parentId) {
-        List<Map<String, Object>> entity=   mapper.getMenusByParentId(parentId);
-        System.out.println(entity);
-        return entity;
+        return  mapper.getMenusByParentId(parentId);
     }
 }

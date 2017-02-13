@@ -4,7 +4,7 @@
     <sql id="column">
       t.id id,
       t.parent_id parentId,
-      t.menu_url url,
+      t.menu_url href,
       t.menu_name title,
       t.menu_icon icon,
       t.menu_desc des

@@ -53,8 +53,8 @@
 		<appender-ref ref="DEBUG_FILE"/>
 	</appender>
 	<!-- 日志输出级别 -->
-	<root level="DEBUG">
+	<root level="INFO">
 		<appender-ref ref="STDOUT" />
-		<appender-ref ref="ASY_DEBUG_FILE" />
+		<appender-ref ref="ASY_INFO_FILE" />
 	</root>
 </configuration>

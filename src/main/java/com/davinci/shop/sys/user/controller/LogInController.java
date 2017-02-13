@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -23,9 +24,10 @@ public class LogInController {
     public String  login(){
         return "login";
     }
+
     @RequestMapping(value="/doLogin")
-    public String doLogin(SysUser user){
-        Map<String,Object> entity=service.logIn(user.getAccount());
+    public String doLogin(SysUser user,HttpServletRequest request) throws Exception {
+        request.getSession().setAttribute("user",  service.logIn(user));//登录成功，向session存入一个登录标记
         return "index";
     }
 }

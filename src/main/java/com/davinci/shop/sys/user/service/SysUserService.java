@@ -1,11 +1,11 @@
 package com.davinci.shop.sys.user.service;
 
 
-import java.util.Map;
+import com.davinci.shop.sys.user.model.SysUser;
 
 /**
  * Created by YoungMan on 2017/2/12.
  */
 public interface SysUserService {
-     Map<String,Object> logIn(String account);
+     SysUser logIn(SysUser user) throws Exception;
 }

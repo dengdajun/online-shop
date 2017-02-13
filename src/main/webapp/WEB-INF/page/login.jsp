@@ -26,18 +26,17 @@
 	</header>
 	<div class="beg-login-main">
 		<form action="sys/doLogin" class="layui-form" method="post">
-			<input name="__RequestVerificationToken" type="hidden" value="fkfh8D89BFqTdrE2iiSdG_L781RSRtdWOH411poVUWhxzA5MzI8es07g6KPYQh9Log-xf84pIR2RIAEkOokZL3Ee3UKmX0Jc8bW8jOdhqo81" />
 			<div class="layui-form-item">
 				<label class="beg-login-icon">
 					<i class="layui-icon">&#xe612;</i>
 				</label>
-				<input type="text" name="userName" lay-verify="account" autocomplete="off" placeholder="这里输入登录名" class="layui-input">
+				<input type="text" name="account" lay-verify="account" autocomplete="off" placeholder="这里输入登录名" class="layui-input">
 			</div>
 			<div class="layui-form-item">
 				<label class="beg-login-icon">
 					<i class="layui-icon">&#xe642;</i>
 				</label>
-				<input type="password" name="password" lay-verify="passwd" autocomplete="off" placeholder="这里输入密码" class="layui-input">
+				<input type="password" name="passwd" lay-verify="passwd" autocomplete="off" placeholder="这里输入密码" class="layui-input">
 			</div>
 			<div class="layui-form-item">
 				<div class="beg-pull-left beg-login-remember">

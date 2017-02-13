@@ -7,7 +7,6 @@
 	<property name="FORMAT" value="%d{yyyy-MM-dd HH:mm:ss} [%thread] [%-5level] %msg%n"/>
 	<property name="COMPRESS_FORMAT" value="gz"/>
 	<timestamp key="DATE" datePattern="yyyy-MM-dd-HH-mm-ss"/>
-
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 			<pattern>
@@ -15,7 +14,8 @@
 			</pattern>
 		</encoder>
 	</appender>
-	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	<!--info文件-->
+	<appender name="INFO_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<encoding>UTF-8</encoding>
 		<file>${LOG_HOME}/temp.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -29,13 +29,32 @@
 		</encoder>
 	</appender>
 	<!--启用异步日志-->
-	<appender name="ASY_FILE" class="ch.qos.logback.classic.AsyncAppender">
+	<appender name="ASY_INFO_FILE" class="ch.qos.logback.classic.AsyncAppender">
 		<queueSize>${ASY_QUEUE_SIZE}</queueSize>
-		<appender-ref ref="FILE"/>
+		<appender-ref ref="INFO_FILE"/>
+	</appender>
+	<!--debug文件-->
+	<appender name="DEBUG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoding>UTF-8</encoding>
+		<file>${LOG_HOME}/debug.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}.debuglog.${COMPRESS_FORMAT}</FileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>
+				${FORMAT}
+			</pattern>
+		</encoder>
+	</appender>
+	<!--启用debug异步日志-->
+	<appender name="ASY_DEBUG_FILE" class="ch.qos.logback.classic.AsyncAppender">
+		<queueSize>${ASY_QUEUE_SIZE}</queueSize>
+		<appender-ref ref="DEBUG_FILE"/>
 	</appender>
 	<!-- 日志输出级别 -->
-	<root level="INFO">
+	<root level="DEBUG">
 		<appender-ref ref="STDOUT" />
-		<appender-ref ref="ASY_FILE" />
+		<appender-ref ref="ASY_DEBUG_FILE" />
 	</root>
 </configuration>

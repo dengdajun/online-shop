@@ -67,3 +67,24 @@
 2017-02-13 01:41:42 [qtp1374431318-19] [INFO ] HV000001: Hibernate Validator 5.3.4.Final
 2017-02-13 01:41:49 [qtp1374431318-21] [WARN ] HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
 2017-02-13 01:41:49 [qtp1374431318-21] [INFO ] HikariPool-1 - Started.
+2017-02-13 10:04:27 [qtp1374431318-24] [INFO ] HV000001: Hibernate Validator 5.3.4.Final
+2017-02-13 10:04:33 [qtp1374431318-47] [WARN ] HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2017-02-13 10:04:33 [qtp1374431318-47] [INFO ] HikariPool-1 - Started.
+2017-02-13 10:20:31 [qtp1374431318-21] [INFO ] HV000001: Hibernate Validator 5.3.4.Final
+2017-02-13 10:20:32 [qtp1374431318-21] [WARN ] HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2017-02-13 10:20:32 [qtp1374431318-21] [INFO ] HikariPool-1 - Started.
+2017-02-13 10:24:25 [qtp203785427-22] [INFO ] HV000001: Hibernate Validator 5.3.4.Final
+2017-02-13 10:24:26 [qtp203785427-22] [WARN ] HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2017-02-13 10:24:26 [qtp203785427-22] [INFO ] HikariPool-1 - Started.
+2017-02-13 10:33:15 [qtp1829883631-20] [INFO ] HV000001: Hibernate Validator 5.3.4.Final
+2017-02-13 10:33:16 [qtp1829883631-20] [WARN ] HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2017-02-13 10:33:16 [qtp1829883631-20] [INFO ] HikariPool-1 - Started.
+2017-02-13 10:49:30 [qtp203785427-21] [INFO ] HV000001: Hibernate Validator 5.3.4.Final
+2017-02-13 10:49:31 [qtp203785427-21] [WARN ] HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2017-02-13 10:49:31 [qtp203785427-21] [INFO ] HikariPool-1 - Started.
+2017-02-13 10:54:36 [qtp1374431318-20] [INFO ] HV000001: Hibernate Validator 5.3.4.Final
+2017-02-13 10:54:37 [qtp1374431318-20] [WARN ] HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2017-02-13 10:54:37 [qtp1374431318-20] [INFO ] HikariPool-1 - Started.
+2017-02-13 10:56:31 [qtp1374431318-18] [INFO ] HV000001: Hibernate Validator 5.3.4.Final
+2017-02-13 10:56:32 [qtp1374431318-18] [WARN ] HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2017-02-13 10:56:32 [qtp1374431318-18] [INFO ] HikariPool-1 - Started.

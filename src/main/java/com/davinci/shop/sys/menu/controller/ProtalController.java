@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by YoungMan on 2017/2/12.
+ * Created by YoungMan on 2017/2/13.
  */
 @Controller
-@RequestMapping("/sys/menu")
-public class SysMenuContoller {
+@RequestMapping("/protal")
+public class ProtalController {
     @Autowired
     private SysMenuService service;
 

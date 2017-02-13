@@ -1,6 +1,7 @@
 package com.davinci.shop.sys.user.mapper;
 
 import com.davinci.core.mybatis.MyBatisInterface;
+import com.davinci.shop.sys.user.model.SysUser;
 
 import java.util.Map;
 
@@ -9,5 +10,5 @@ import java.util.Map;
  */
 @MyBatisInterface
 public interface SysUserMapper {
-     Map<String,Object> getUserByAccount(String account);
+     SysUser getUserByAccount(String account);
 }
