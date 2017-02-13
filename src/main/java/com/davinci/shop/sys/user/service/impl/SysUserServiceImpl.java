@@ -22,9 +22,9 @@ public class SysUserServiceImpl implements SysUserService {
         if(entity==null){
             throw new Exception("没有此账号");
         }
-        if(entity.getPasswd().equals(EncryptDecrypt.MD5(user.getPasswd()))){
-            throw new Exception("密码错误");
-        }
+//        if(!entity.getPasswd().equals(EncryptDecrypt.MD5(user.getPasswd()))){
+//            throw new Exception("密码错误");
+//        }
          return entity;
     }
 }

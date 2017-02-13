@@ -20,7 +20,10 @@ public class ProtalController {
 
     @RequestMapping("/list")
     @ResponseBody
-    public List<Map<String,Object>> menuList(){
+    public List<Map<String,Object>> menuList() throws Exception {
+        if(true){
+            throw new Exception("tes");
+        }
         return  service.getMenusByParentId(null);
     }
 }

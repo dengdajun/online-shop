@@ -17,6 +17,16 @@ layui.config({
 			$(this).height($content.height());
 		});
 	}).resize();
+
+    $(function(){
+        //.ajaxError事件定位到document对象，文档内所有元素发生ajax请求异常，都将冒泡到document对象的ajaxError事件执行处理
+        $(document).ajaxError(
+            //所有ajax请求异常的统一处理函数，处理
+            function(event,xhr,options,exc ){
+                layer.msg(xhr.responseText);
+            }
+        );
+    });
     //navbar数据加载
     navbar.set({
         spreadOne: true,
