@@ -1,0 +1,1 @@
+layui.define(["layer"],function(f){var g=layui.jquery,e=layui.layer;var h={throwError:function(a){throw new Error(a);return},msgError:function(a){e.msg(a,{icon:5});return}};f("common",h)});

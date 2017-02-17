@@ -13,15 +13,20 @@
     <project.build.encoding>UTF-8</project.build.encoding>
     <profile-env>dev</profile-env>
     <project.finalName>LastSupper</project.finalName>
+    <project.java.source>src/main/java</project.java.source>
+    <project.web.source>src/main/webapp</project.web.source>
+    <project.resource>src/main/resources</project.resource>
     <spring-version>4.3.5.RELEASE</spring-version>
     <spring-security-version>4.2.1.RELEASE</spring-security-version>
+    <yuicompressor.phase>compile</yuicompressor.phase>
+    <!--<yuicompressor.phase>prepare-package</yuicompressor.phase>-->
   </properties>
 
 <!--构建-->
   <build>
     <resources>
         <resource>
-          <directory>src/main/resources</directory>
+          <directory>${project.resource}</directory>
           <includes>
             <include>**/*.properties</include>
             <include>**/*.xml</include>
@@ -30,14 +35,22 @@
           <filtering>false</filtering>
         </resource>
         <resource>
-          <directory>src/main/java</directory>
+          <directory>${project.java.source}</directory>
           <includes>
             <include>**/*.xml</include>
           </includes>
           <filtering>false</filtering>
         </resource>
+        <resource>
+          <directory>${project.web.source}</directory>
+          <includes>
+            <include>**/*.min.js</include>
+            <include>**/*.min.css</include>
+          </includes>
+          <filtering>false</filtering>
+        </resource>
     </resources>
-    <finalName>LastSupper</finalName>
+    <finalName>${project.finalName}</finalName>
       <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -69,50 +82,52 @@
                 <targetPath>WEB-INF/classes</targetPath>
               </resource>
             </webResources>
+            <warSourceDirectory>${webapp.src.dir}</warSourceDirectory>
+            <webappDirectory>${project.web.source}</webappDirectory>
               <!--使用压缩工具-->
             <!--<warSourceExcludes>**/*.js,**/*.css</warSourceExcludes>-->
           </configuration>
         </plugin>
         <!--静态文件压缩-->
-        <!--<plugin>-->
-          <!--<groupId>net.alchim31.maven</groupId>-->
-          <!--<artifactId>yuicompressor-maven-plugin</artifactId>-->
-          <!--<version>1.5.1</version>-->
-          <!--<executions>-->
-            <!--<execution>-->
-              <!--<phase>prepare-package</phase>-->
-              <!--<goals>-->
-                <!--<goal>compress</goal>-->
-              <!--</goals>-->
-            <!--</execution>-->
-          <!--</executions>-->
-          <!--<configuration>-->
-            <!--&lt;!&ndash; 读取js,css文件采用UTF-8编码 &ndash;&gt;-->
-            <!--<encoding>${project.build.encoding}</encoding>-->
-            <!--&lt;!&ndash; 不显示js可能的错误 &ndash;&gt;-->
-            <!--<jswarn>false</jswarn>-->
-            <!--&lt;!&ndash; 若存在已压缩的文件，会先对比源文件是否有改动  有改动便压缩，无改动就不压缩 &ndash;&gt;-->
-            <!--<force>false</force>-->
-            <!--&lt;!&ndash; 在指定的列号后插入新行 &ndash;&gt;-->
-            <!--<linebreakpos>-1</linebreakpos>-->
-            <!--&lt;!&ndash; 压缩之前先执行聚合文件操作 &ndash;&gt;-->
-            <!--&lt;!&ndash;<preProcessAggregates>true</preProcessAggregates>&ndash;&gt;-->
-            <!--&lt;!&ndash; 压缩后保存文件后缀 无后缀 &ndash;&gt;-->
-            <!--<nosuffix>true</nosuffix>-->
-            <!--&lt;!&ndash; 源目录，即需压缩的根目录 &ndash;&gt;-->
-            <!--<sourceDirectory>${basedir}/src/main/webapp</sourceDirectory>-->
-            <!--&lt;!&ndash; 压缩js和css文件 &ndash;&gt;-->
-            <!--<includes>-->
-              <!--<include>**/*.js</include>-->
-              <!--<include>**/*.css</include>-->
-            <!--</includes>-->
-            <!--&lt;!&ndash; 以下目录和文件不会被压缩 &ndash;&gt;-->
-            <!--<excludes>-->
-              <!--<exclude>**/*.min.js</exclude>-->
-              <!--<exclude>**/*.min.css</exclude>-->
-            <!--</excludes>-->
-          <!--</configuration>-->
-        <!--</plugin>-->
+        <plugin>
+          <groupId>net.alchim31.maven</groupId>
+          <artifactId>yuicompressor-maven-plugin</artifactId>
+          <version>1.5.1</version>
+          <executions>
+            <execution>
+              <phase>${yuicompressor.phase}</phase>
+              <goals>
+                <goal>compress</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <!-- 读取js,css文件采用UTF-8编码 -->
+            <encoding>${project.build.encoding}</encoding>
+            <!-- 不显示js可能的错误 -->
+            <jswarn>false</jswarn>
+            <!-- 若存在已压缩的文件，会先对比源文件是否有改动  有改动便压缩，无改动就不压缩 -->
+            <force>true</force>
+            <!-- 在指定的列号后插入新行 -->
+            <linebreakpos>-1</linebreakpos>
+            <!-- 压缩之前先执行聚合文件操作 -->
+            <!--<preProcessAggregates>true</preProcessAggregates>-->
+            <!-- 压缩后保存文件后缀 无后缀 -->
+            <nosuffix>true</nosuffix>
+            <!-- 源目录，即需压缩的根目录 -->
+            <sourceDirectory>${project.web.source}</sourceDirectory>
+            <!-- 压缩js和css文件 -->
+            <includes>
+              <include>**/*.js</include>
+              <include>**/*.css</include>
+            </includes>
+            <!-- 以下目录和文件不会被压缩 -->
+            <excludes>
+              <exclude>**/*.min.js</exclude>
+              <exclude>**/*.min.css</exclude>
+            </excludes>
+          </configuration>
+        </plugin>
         <plugin>
           <groupId>org.eclipse.jetty</groupId>
           <artifactId>jetty-maven-plugin</artifactId>
@@ -144,7 +159,7 @@
         <profile-env>dev</profile-env>
       </properties>
       <build>
-        <finalName>LastSupper</finalName>
+        <finalName>${project.finalName}</finalName>
       </build>
     </profile>
     <profile>
@@ -153,7 +168,7 @@
         <profile-env>prod</profile-env>
       </properties>
       <build>
-        <finalName>LastSupper</finalName>
+        <finalName>${project.finalName}</finalName>
       </build>
     </profile>
   </profiles>
@@ -208,6 +223,11 @@
       <artifactId>mybatis-spring</artifactId>
       <version>1.3.1</version>
     </dependency>
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>5.0.0</version>
+    </dependency>
     <!--mysql connector-->
     <dependency>
       <groupId>mysql</groupId>
@@ -219,6 +239,11 @@
       <groupId>com.zaxxer</groupId>
       <artifactId>HikariCP</artifactId>
       <version>2.5.1</version>
+    </dependency>
+    <dependency>
+      <groupId>c3p0</groupId>
+      <artifactId>c3p0</artifactId>
+      <version>0.9.1.2</version>
     </dependency>
     <!--logback-->
     <dependency>
@@ -289,6 +314,11 @@
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
       <version>2.6</version>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.24</version>
     </dependency>
   </dependencies>
 <!--仓库-->
